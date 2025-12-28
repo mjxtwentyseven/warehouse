@@ -1,0 +1,35 @@
+html, body{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: sans-serif;
+    color: #ffdcbc;
+    background-color: #ffdcbc;
+}
+
+.container{
+    display: flex;
+    height: 250px;
+    width: 30%;
+    gap: 10px;
+    >div{
+        background-color: #9b111e;
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+        border-radius: 10px;
+
+        transition: flex-grow .5s ease-in-out;
+
+        &:hover{
+            flex-grow: 5 ;
+        }
+    }
+}

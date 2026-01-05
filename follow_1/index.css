@@ -1,0 +1,56 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #e1cca6;
+  margin: 0;
+  perspective: 1500px; /* Needed for 3D card rotation */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card {
+  width: 300px;
+  height: 600px;
+  background: linear-gradient(135deg, #7c1729, #7c1729);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px #827355;
+  transform-style: preserve-3d; /* Enable child elements to maintain 3D */
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #e1cca6;
+  text-align: center;
+}
+
+.card h1 {
+  margin: 0;
+  font-size: 2rem;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.7); /* Slight text depth */
+}
+
+.card p {
+  margin: 10px 0 0 0;
+  font-size: 1.5rem;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Subtle text shadow */
+}
+
+/* Card highlight effect */
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  /* Light position controlled via CSS variables */
+  background: radial-gradient(circle at var(--lightX, 50%) var(--lightY, 50%), rgba(255,255,255,0.15), transparent 70%);
+  pointer-events: none; /* Allow mouse events to pass through */
+  transform: translateZ(50px); /* Slight 3D offset */
+  border-radius: 50%; /* Circular light shape */
+  transition: background-position 0.1s ease; /* Smooth movement of light */
+}

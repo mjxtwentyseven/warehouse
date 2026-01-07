@@ -1,0 +1,38 @@
+html{
+  overflow: hidden;
+}
+	body{
+    height: 100vh;
+		font-family: 'Verdana';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dfd5ad;
+    color: #97835c;
+	}
+	.word {
+		--translate-distance: -1lh;
+		--trans-duration: 3000ms;
+		--trans-delay-factor: 20ms;
+		--trans-timimg-function: linear(0, 0.011 0.6%, 0.041 1.2%, 0.173 2.6%, 0.894 7.4%, 1.128 9.3%, 1.271 11.1%, 1.311 12%, 1.333 13%, 1.328 14.4%, 1.286 15.9%, 1.031 21%, 0.95 23%, 0.907 24.7%, 0.888 26.5%, 0.89 27.9%, 0.904 29.4%, 1.034 42.5%, 0.997 49.3%, 0.987 53.3%, 1.004 66.5%, 1);
+		--text-color-hover: #912c2c;
+		--font-size: clamp(3rem, 8.5vw + .045rem, 8rem);
+		
+		text-decoration: none;
+		text-transform: uppercase;
+		font-size: var(--font-size);
+		font-weight: 700;
+		color: var(--clr-txt);
+		display: flex;
+		overflow: hidden;
+
+		& > span{
+			--i: sibling-index();
+			--trans-delay: calc(var(--i) * var(--trans-delay-factor));
+			text-shadow: 0 1lh var(--text-color-hover);
+			transition: translate var(--trans-duration) var(--trans-timimg-function) var(--trans-delay);
+		}
+		&:hover > span {
+			 translate: 0 var(--translate-distance);
+		}
+	}

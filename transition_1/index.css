@@ -1,0 +1,78 @@
+@keyframes fade {
+  from { opacity: 0 }
+  to   { opacity: 1 }
+}
+
+@keyframes combine {
+  to { 
+    filter: blur(10px) contrast(30); 
+  }
+}
+
+h1 {
+  animation: 
+  fade 4s linear infinite;
+  animation-timing-function: linear(1 45%, 0 55% 90%, 1 100%);
+  &:nth-child(2) {
+    animation-timing-function: linear(0 45%, 1 55% 90%, 0 100%);
+  } 
+}
+
+h1 {
+  animation: 
+  fade 4s linear infinite;
+}
+
+section {
+  animation: 
+  combine 4s linear infinite;
+  > * {
+    grid-area: 1 / 1;
+  }
+}
+
+section {
+  background: white;
+  animation: combine 4s linear infinite;
+  animation-timing-function: linear(0, 0 45%, 1 50%, 0 55% 90%, 1 95%, 0 100%);
+  
+  padding: 50px;
+  display: grid;
+  place-items: center;
+  
+  > * {
+    grid-area: 1 / 1;
+  }
+}
+
+@layer demo {
+  :root {
+    view-transition-name: none;
+  }
+  
+  h1 {
+    font-size: 13vw;
+  }
+}
+
+@layer demo.support {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  html {
+    block-size: 100%;
+    color-scheme: light;
+  }
+
+  body {
+    min-block-size: 100%;
+    font-family: system-ui, sans-serif;
+
+    display: grid;
+    place-content: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
